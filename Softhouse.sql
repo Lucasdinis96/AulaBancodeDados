@@ -1,9 +1,9 @@
-#criação do banco de dados:#
+#criação do banco de dados:
 CREATE DATABASE if not exists SOFTHOUSE
 DEFAULT CHARACTER SET utf8
 DEFAULT COLLATE utf8_general_ci;
 
-#uso do banco de dados e criação de tabelas:#
+#uso do banco de dados e criação de tabelas:
 USE Softhouse;
 CREATE TABLE if not exists Aluno(
 ALUNO_ID INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -11,7 +11,7 @@ ALUNO_Nome VARCHAR(60) NOT NULL ,
 ALUNO_Endereco VARCHAR(60) NOT NULL ,
 ALUNO_Sexo ENUM('M','F') NOT NULL ,
 ALUNO_Email VARCHAR(60) NOT NULL ,
-ALUNO_Telefone VARCHAR(20) NOT NULL ,
+ALUNO_Telefone VARCHAR(20) NOT NULL DEFAULT '0000-0000',
 PRIMARY KEY (ALUNO_ID)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8;
 CREATE TABLE if not exists Instrutor(
@@ -61,24 +61,37 @@ FOREIGN KEY (PEDIDO_ID) REFERENCES Pedido (PEDIDO_ID)
 
 #alteração de tabela
 ALTER TABLE ALUNO ADD DATA_NASCIMENTO VARCHAR(10);
-ALTER TABLE ALUNO CHANGE DATA_NASCIMENTO NASCIMENTO DATE NULL;
+ALTER TABLE ALUNO CHANGE DATA_NASCIMENTO ALUNO_Nascimento DATE NULL;
 ALTER TABLE ALUNO ADD INDEX INDEX_NomeAluno(ALUNO_Nome);
 #ALTER TABLE INSTRUTOR ADD PROFISSAO VARCHAR(30);
-ALTER TABLE CURSO ADD INDEX INDEX_NomeCurso(CURSO_Nome); 
+ALTER TABLE CURSO ADD INDEX INDEX_NomeCurso(CURSO_Nome);
+#ALTER TABLE INSTRUTOR DROP INSTRUTOI_Email;
+
 #inserção de dados nas tabelas:
 #tbTipo
-insert into tipo values(1,"Banco de dados");
-insert into tipo values(2,"Programação");
-insert into tipo values(3,"Modelagem de dados");
+INSERT INTO TIPO VALUES(1,"Banco de dados");
+INSERT INTO TIPO VALUES(2,"Programação");
+INSERT INTO TIPO VALUES(3,"Modelagem de dados");
 #tbInstrutor
-insert into instrutor values(1,"André Milani",'M',"1111-1111","andre@softhouse.com.br");
-insert into instrutor values(2,"Carlos Tosin",'M',"1234-1456","jose@softhouse.com.br");
-insert into instrutor values(3,"Marcos Batista",'M',"1231-1456","marcos@softhouse.com.br");
-insert into instrutor values(4,"Maria da Silva",'F','7681-4556','maria@softhouse.com.br');
+INSERT INTO INSTRUTOR VALUES(1,"André Milani",'M',"1111-1111","andre@softhouse.com.br");
+INSERT INTO INSTRUTOR VALUES(2,"Carlos Tosin",'M',"1234-1456","jose@softhouse.com.br");
+INSERT INTO INSTRUTOR VALUES(3,"Marcos Batista",'M',"1231-1456","marcos@softhouse.com.br");
+INSERT INTO INSTRUTOR VALUES(4,"Maria da Silva",'F','7681-4556','maria@softhouse.com.br');
 #tbCurso
-insert into curso values(1,'Java Fundamentos',2,2,270);
-insert into curso values(2,'Java Avançado',2,2,330);
-insert into curso values(3,'SQL Completo',1, 1,170);
-insert into curso values(4,'Php Básico',2,1,270);
+INSERT INTO CURSO VALUES(1,'Java Fundamentos',2,2,270);
+INSERT INTO CURSO VALUES(2,'Java Avançado',2,2,330);
+INSERT INTO CURSO VALUES(3,'SQL Completo',1, 1,170);
+INSERT INTO CURSO VALUES(4,'Php Básico',2,1,270);
+#tbAlunos
+INSERT INTO ALUNO
+	(ALUNO_ID,ALUNO_Nome,ALUNO_Endereco,ALUNO_Email) 
+VALUES
+	(1,'José','Rua XV de Novembro 72','jose@softhouse.com.br'),
+    (2,'Wagner','Av. Paulista','wagner@softhouse.com.br'),
+	(3,'Emílio','Rua Lajes 103, ap: 701','emilio@softhouse.com.br'),
+	(4,'Cris','Rua Tauney 22','cris@softhouse.com.br'),
+	(5,'Regina','Rua Salles 305','regina@softhouse.com.br'),
+	(6,'Fernando','Av. Central 30','fernando@softhouse.com.br');
+
 
  

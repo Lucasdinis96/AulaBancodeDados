@@ -92,6 +92,47 @@ VALUES
 	(4,'Cris','Rua Tauney 22','cris@softhouse.com.br'),
 	(5,'Regina','Rua Salles 305','regina@softhouse.com.br'),
 	(6,'Fernando','Av. Central 30','fernando@softhouse.com.br');
+#tbPedido
+INSERT INTO PEDIDO
+	(PEDIDO_ID,PEDIDO_Data,PEDIDO_Hora,ALUNO_ID)
+VALUES
+	(1,'2010-04-15',"11:23:32",2),
+	(2,'2010-04-15',"14:36:21",2),
+	(3,'2010-04-16',"11:17:45",3),
+	(4,'2010-04-17',"14:27:22",4),
+	(5,'2010-04-18',"11:18:19",5),
+	(6,'2010-04-19',"13:47:35",6),
+	(7,"2010-04-20",'18:13:44',6);
+#tbPedido_detalhe
+INSERT INTO PEDIDO_DETALHE
+	(PEDIDO_ID,CURSO_ID,PEDIDO_Valor)
+VALUES
+	(1, 1, 270),
+	(1, 2, 330),
+	(2, 1, 270),
+	(2, 2, 330),
+	(2, 3, 170),
+	(3, 4, 270),
+	(4, 2, 330),
+	(4, 4, 270),
+	(5, 3, 170),
+	(6, 3, 170),
+	(7, 4, 270);
 
-
- 
+#atualização de registros em tabelas
+#01
+UPDATE ALUNO
+SET ALUNO_Endereco='Av. Brasil, 778'
+WHERE ALUNO_ID=1;
+#02
+UPDATE ALUNO
+SET ALUNO_Email='cristiana@gmail.com'
+WHERE ALUNO_ID=4;
+#03
+UPDATE PEDIDO_DETALHE
+SET PEDIDO_VALOR=PEDIDO_VALOR*1.1
+WHERE PEDIDO_VALOR<300;
+#04
+UPDATE CURSO
+SET CURSO_NOME='Php Fundamento'
+WHERE CURSO_ID=4;

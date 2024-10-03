@@ -87,7 +87,7 @@ INSERT INTO ALUNO
 	(ALUNO_ID,ALUNO_Nome,ALUNO_Endereco,ALUNO_Email) 
 VALUES
 	(1,'José','Rua XV de Novembro 72','jose@softhouse.com.br'),
-    (2,'Wagner','Av. Paulista','wagner@softhouse.com.br'),
+    	(2,'Wagner','Av. Paulista','wagner@softhouse.com.br'),
 	(3,'Emílio','Rua Lajes 103, ap: 701','emilio@softhouse.com.br'),
 	(4,'Cris','Rua Tauney 22','cris@softhouse.com.br'),
 	(5,'Regina','Rua Salles 305','regina@softhouse.com.br'),

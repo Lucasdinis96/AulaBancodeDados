@@ -67,7 +67,7 @@ ALTER TABLE ALUNO ADD INDEX INDEX_NomeAluno(ALUNO_Nome);
 ALTER TABLE CURSO ADD INDEX INDEX_NomeCurso(CURSO_Nome);
 #ALTER TABLE INSTRUTOR DROP INSTRUTOI_Email;
 
-#inserção de dados nas tabelas:
+#Exercício 1: Inserção de dados nas tabelas:
 #tbTipo
 INSERT INTO TIPO VALUES(1,"Banco de dados");
 INSERT INTO TIPO VALUES(2,"Programação");
@@ -87,7 +87,7 @@ INSERT INTO ALUNO
 	(ALUNO_ID,ALUNO_Nome,ALUNO_Endereco,ALUNO_Email) 
 VALUES
 	(1,'José','Rua XV de Novembro 72','jose@softhouse.com.br'),
-    	(2,'Wagner','Av. Paulista','wagner@softhouse.com.br'),
+	(2,'Wagner','Av. Paulista','wagner@softhouse.com.br'),
 	(3,'Emílio','Rua Lajes 103, ap: 701','emilio@softhouse.com.br'),
 	(4,'Cris','Rua Tauney 22','cris@softhouse.com.br'),
 	(5,'Regina','Rua Salles 305','regina@softhouse.com.br'),
@@ -119,7 +119,25 @@ VALUES
 	(6, 3, 170),
 	(7, 4, 270);
 
-#atualização de registros em tabelas
+#Exercício 2: Seleção de registros das tabelas
+#01
+SELECT * FROM ALUNO;
+#02
+SELECT CURSO_NOME FROM CURSO;
+#03
+SELECT CURSO_NOME,CURSO_VALOR FROM CRUSO WHERE CURSO_VALOR>200;
+#04
+SELECT CURSO_NOME,CURSO_VALOR FROM CURSO WHERE CURSO_VALOR>200 AND CURSO_VALOR<300;
+#05
+SELECT CURSO_NOME,CUROS_VALOR FROM CURSO WHERE CURSO_VALOR BETWEEN 200 AND 300;
+#06
+SELECT * FROM PEDIDO WHERE PEDIDO_DATA>='2010-04-15' AND PEDIDO_DATA<='2010-04-18';
+#07
+SELECT * FROM PEDIDO WHERE PEDIDO_DATA BETWEEN'2010-04-15' AND '2010-04-18';
+#08
+SELECT * FROM PEDIDO WHERE PEDIDO_DATA='2010-04-15';
+
+#Exercício 3: Atualização de registros em tabelas
 #01
 UPDATE ALUNO
 SET ALUNO_Endereco='Av. Brasil, 778'
@@ -136,3 +154,5 @@ WHERE PEDIDO_VALOR<300;
 UPDATE CURSO
 SET CURSO_NOME='Php Fundamento'
 WHERE CURSO_ID=4;
+
+

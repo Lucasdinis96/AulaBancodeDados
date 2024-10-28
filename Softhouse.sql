@@ -155,4 +155,23 @@ UPDATE CURSO
 SET CURSO_NOME='Php Fundamento'
 WHERE CURSO_ID=4;
 
-
+#Exercício 4: Views e Joins
+#01
+select CURSO_Nome,TIPO_descricao from curso c inner join tipo t on c.tipo_id=t.tipo_id;
+#02
+select curso_nome, tipo_descricao, instrutor_nome, instrutor_telefone from ((curso c inner join tipo t on c.tipo_id=t.tipo_id) inner join instrutor i on c.instrutor_id=i.instrutor_id);
+#03
+select p.pedido_id,pedido_data,pedido_hora,curso_id from pedido as p inner join pedido_detalhe as d on p.pedido_id=d.pedido_id;
+#04
+select d.pedido_id,pedido_data,pedido_hora,curso_nome from ((pedido_detalhe as d inner join pedido as p on d.pedido_id=p.pedido_id) inner join curso as c on d.curso_id=c.curso_id);
+#05
+select d.pedido_id,pedido_data,pedido_hora,aluno_nome,curso_nome from ((pedido_detalhe as d inner join pedido as p on d.pedido_id=p.pedido_id)inner join aluno as a on p.aluno_id=a.aluno_id inner join curso as c on d.curso_id=c.curso_id);
+#06
+create view Preços_dos_cursos_de_Programação as select curso_nome,curso_valor from curso where tipo_id=2;
+select * from Preços_dos_cursos_de_Programação;
+#07
+create view Informação_dos_cursos as select curso_nome,tipo_descricao,instrutor_nome from ((curso as c inner join tipo as t on c.tipo_id=t.tipo_id) inner join instrutor i on c.instrutor_id=i.instrutor_id);
+select * from Informação_dos_cursos;
+#08
+create view Pedidos_realizados as select aluno_nome,pedido_data,pedido_id from aluno as a inner join pedido as p on a.aluno_id=p.aluno_id;
+select * from Pedidos_realizados;
